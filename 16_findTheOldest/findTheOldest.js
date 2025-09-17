@@ -1,23 +1,18 @@
-const findTheOldest = function(arr) {
-    let oldestName = null;
-    let maxAge = 0;
-    const actualYear = 2025;
-
-    arr.forEach(element => {
-        const muere = element.yearOfDeath ? element.yearOfDeath : actualYear;
-
-        const nace = element.yearOfBirth;
-
-        const edad = muere - nace;
-
-        if(edad > maxAge) {
-            maxAge = edad;
-            oldestName = element
+const findTheOldest = function (arr) {
+    reduced = arr.reduce((prev, current) => {
+        let currentYear = 2025
+        if (!prev.yearOfDeath) {
+            prev.yearOfDeath = currentYear
         }
-
-    });
-    return oldestName;
+        if ((prev.yearOfDeath - prev.yearOfBirth) > (current.yearOfDeath - current.yearOfBirth)) {
+            return prev
+        } else {
+            return current
+        }
+    })
+    return reduced
 };
+
 
 // Do not edit below this line
 module.exports = findTheOldest;
