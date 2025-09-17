@@ -1,18 +1,11 @@
-const palindromes = function (str) {
-    result = "";
+const palindromes = function (txt) {
+    let reversed = "";
+    let replaced = txt.replace(/[, !.]/g, "").toLowerCase()
 
-    for (let i = str.length - 1; i >= 0; i-- ){
-        result += str[i]
+    for(let i = replaced.length - 1; i >= 0; i--){
+        reversed+= replaced[i]
     }
-    mejorado = result.replace(/[,\.\!\s]/g, "");
-    strMejorado = str.replace(/[,\.\!\s]/g, "");
-
-    if (mejorado.toLowerCase() === strMejorado.toLowerCase()) {
-        return true
-    } else {
-        return false
-    }
+    return reversed === replaced
 };
 
-// Do not edit below this line
 module.exports = palindromes;

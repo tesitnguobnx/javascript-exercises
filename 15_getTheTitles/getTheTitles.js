@@ -1,9 +1,7 @@
-const getTheTitles = function(arr) {
-    let newArray = [];
-    arr.forEach(element => {
-        newArray.push(element.title)
-    });
-    return newArray;
+const getTheTitles = function (book) {
+    return book.map((x) => 
+        x.title
+    )
 };
 
 // Do not edit below this line
